@@ -1,0 +1,38 @@
+<div class="container w-50">
+    <div>
+        <div>
+            <form [formGroup]="searchMovieForm">
+                <h3 class="text-danger text-center mb-5">Movie Search App</h3>
+                <input formControlName="movie" type="search" placeholder="Search a Movie" name="movie" id="movie"
+                    class="form-control">
+                <div class="text-center">
+                    <button class="btn btn-danger ms-3 mt-2 mb-2" (click)="searchMovie()">Search</button>
+                </div>
+            </form>
+        </div>
+        <div class=" mt-5 mb-5">
+            <p><img src="{{moviedata.Poster}}" alt="" style="height: 200px;"></p>
+            Title: <h3 class="text-primary">{{moviedata.Title}}</h3>
+            Released Date:<p class="text-success">{{moviedata.Released}}</p>
+            Actors:<p class="text-secondary">{{moviedata.Actors}}</p>
+            Plot:<p class="text-danger">{{moviedata.Plot}}</p>
+            Ratings:
+            <table class="text-danger-emphasis border">
+                <tr>
+                    <th class="border">#</th>
+                    <th class="border"> Source:</th>
+                    <th class="border"> Value: </th>
+                </tr>
+                <tr *ngFor="let i of moviedata.Ratings let j =index">
+                    <td class="border">{{j+1}}</td>
+                    <td class="border">
+                        {{i.Source}}
+                    </td>
+                    <td class="border">
+                        {{i.Value}}
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
